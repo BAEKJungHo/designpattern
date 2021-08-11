@@ -19,6 +19,12 @@
 - The `View` presents the model’s data to the user. The view knows how to access the model’s data, but it does not know what this data means or what the user can do to manipulate it.
 - The `Controller` exists between the view and the model. It listens to events triggered by the view (or another external source) and executes the appropriate reaction to these events. In most cases, the reaction is to call a method on the model. Since the view and the model are connected through a notification mechanism, the result of this action is then automatically reflected in the view.
 
+> 모델 (model) — 핵심 기능과 데이터를 포함한다.
+> 
+> 뷰 (view) — 사용자에게 정보를 표시한다 (하나 이상의 뷰가 정의될 수 있음)
+> 
+> 컨트롤러 (controller) — 사용자로부터의 입력을 처리한다.
+
 ### Advantages
 
 - Multiple developers can work simultaneously on the model, controller and views.
