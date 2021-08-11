@@ -37,3 +37,38 @@ ServiceLocator 를 안티패턴으로 보는 사람도 있다. 이유는 다음�
 
 - 의존 관계를 외부에서 보기 어렵다.
 - 테스트 유지가 어렵다.
+
+### 의존 관계를 외부에서 보기 어렵다.
+
+```java
+public class Service {
+  
+  private final Repository repository;
+  
+  public Service() {
+    this.repository = ServiceLocator.Resolve<Repository>();
+  }
+
+}
+```
+
+위 예제를 미루어보았을때, 의존 관계 해소를 위한 설정이 미리 되어있지 않으면 에러가 발생한다. 
+
+즉, __클래스 정의만 보고 'Service 가 제대로 동작하기 위해서는 Repository 를 사용할 때 전달할 객체를 미리 등록해야 한다'__ 라는 것을 알 수 없다. 
+
+### 테스트 유지가 어렵다.
+
+예를 들어, 새로운 UserRepository 가 추가되었다고 하면
+
+```java
+private final Repository repository;
+private final UserRepository userRepository;
+```
+
+새롭게 추가된 리포지토리에 대한 의존 관계 해소 정보가 등록되어있지 않으면 버그가 발생한다. 문제는 실제로 테스트를 실행하기 전 까지는 알 수 없다는 점이다.
+
+__즉, 컴파일 시점에 알 수 없고, 런타임 시점에 에러 여부를 알 수 있다.__
+
+## References
+
+> [도메인 주도 설계 철저 입문](#)
