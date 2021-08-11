@@ -358,3 +358,10 @@ CarDto carDto = new CarDto(car.getName(), car.getPosition); // 생성자를 쓴 
 - `newInstance | create` : 새로운 인스턴스를 생성.
 - `get[OtherType]` : 다른 타입의 인스턴스를 생성. 이전에 반환했던 것과 같을 수 있음.
 - `new[OtherType]` : 다른 타입의 새로운 인스턴스를 생성.
+
+## 팩토리 역할을 하는 메서드
+
+엔티티 등에서 함부로 객체생성을 하지 못하게 생성자를 private 으로 막고, 메서드 이름(Ex. create)을 통해서 객체를 생성하기도 한다.
+이러한 방법은 도메인을 어떤 관점에서 모델링 했는지에 따라 달라진다. 예를들어, 사용자(User) 와 서클(Circle) 에서 사용자 도메인 객체에서
+createCircle 이라는 메서드를 통해서 서클 객체를 생성하게 할 수 있다. 물론 Circle 클래스에서는 private 생성자로 객체 생성을 막는다. 즉, 서클 객체 생성 책임을
+사용자에게 넘기는 것이다.
