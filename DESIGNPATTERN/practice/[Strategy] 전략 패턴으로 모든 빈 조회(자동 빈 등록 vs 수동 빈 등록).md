@@ -22,6 +22,7 @@ public class AllBeanTest {
        System.out.println("policyMap = " + policyMap);
        System.out.println("policies = " + policies);
       }
+      
      public int discount(Member member, int price, String discountCode) {
          DiscountPolicy discountPolicy = policyMap.get(discountCode);
          System.out.println("discountCode = " + discountCode);
